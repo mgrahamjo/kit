@@ -15,12 +15,12 @@ Scaffolds a universal single page app using [Oat](https://github.com/mgrahamjo/o
 ## Install
 
 ```
-git clone https://github.com/mgrahamjo/kit && cd kit && ./bin/setup.mac.sh
+git clone https://github.com/mgrahamjo/kit && ./kit/bin/setup.mac.sh
 ```
 
 ## Develop
 
-```
+```bash
 # Watch files for changes:
 npm run watch
 # Start server:
