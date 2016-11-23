@@ -1,13 +1,13 @@
 const express = require('express'),
   oatServer = require('oat/server'),
-  routes = require('./universal/routes'),
+  oatApp = require('./universal/app'),
   app = express();
 
-app.use(express.static('universal'));
+app.use(express.static('src/universal'));
 
 oatServer.setViewSync('universal/app.html');
 
-oatServer.use(routes);
+oatServer.use(oatApp);
 
 app.get('/', (req, res) => {
 
@@ -17,4 +17,6 @@ app.get('/', (req, res) => {
 
 });
 
-app.listen(8080);
+app.listen(1337);
+
+console.log('listening on port 1337');

@@ -1,7 +1,7 @@
 const oat = require('oat'),
   app = require('./components/app');
 
-oat.app(route => {
+module.exports = oat.app(route => {
 
   route.set('/', app);
 

@@ -1,34 +1,50 @@
 {
   "name": "kit",
   "version": "1.0.0",
-  "description": "Universal single page app scaffolding",
-  "main": "index.js",
+  "description": "Universal JS app scaffolding",
+  "main": "src/index.js",
   "scripts": {
-    "polyfill": "cp node_modules/babel-polyfill/dist/polyfill.js universal/polyfill.js",
-    "build": "npm run polyfill && webpack -p",
-    "watch": "npm run polyfill && webpack --watch"
+    "build": "./bin/build",
+    "eslint": "./bin/eslint",
+    "browserify": "./bin/browserify",
+    "css": "./bin/css",
+    "watch": "npm-watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mgrahamjo/kit.git"
+  "watch": {
+    "eslint": {
+      "patterns": ["src/*"],
+      "extensions": "js",
+      "ignore": ["src/universal/dist/bundle.js"]
+    },
+    "browserify": {
+      "patterns": ["src/universal/*"],
+      "extensions": "js",
+      "ignore": ["src/universal/dist/bundle.js"]
+    },
+    "css": {
+      "patterns": ["src/css/*"],
+      "extensions": "scss"
+    }
   },
-  "author": "mgrahamjo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mgrahamjo/kit/issues"
-  },
-  "homepage": "https://github.com/mgrahamjo/kit#readme",
-  "dependencies": {
-    "babel-polyfill": "^6.16.0",
-    "express": "^4.14.0",
-    "oat": "^1.0.1"
-  },
+  "repository": "https://github.com/mgrahamjo/kit",
+  "author": "Mike Johnson",
+  "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.7",
-    "babel-plugin-transform-runtime": "^6.15.0",
+    "autoprefixer": "^6.5.3",
+    "babel-eslint": "^7.1.1",
     "babel-preset-es2015": "^6.18.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "webpack": "^1.13.3"
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "clean-css": "^3.4.21",
+    "eslint": "^3.10.2",
+    "npm-watch": "^0.1.6",
+    "postcss-cli": "^2.6.0",
+    "stylelint": "^7.6.0",
+    "stylelint-config-standard": "^15.0.0",
+    "uglify-js": "^2.7.4"
+  },
+  "dependencies": {
+    "oat": "^1.0.3",
+    "express": "^4.14.0"
   }
 }

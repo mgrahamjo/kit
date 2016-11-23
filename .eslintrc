@@ -1,12 +1,5 @@
 { 
-
-  "plugins": [
-    "react"
-  ],
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
-
-  // Environment Variables
-  // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
+  "extends": ["eslint:recommended"],
 
   "env": {
     "node": true,
@@ -23,9 +16,7 @@
   
   "parserOptions": {
     "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    "ecmaFeatures": {}
   },
 
   "rules": { 
@@ -91,14 +82,6 @@
     "object-curly-spacing": 2, // don't allow extra spaces in object curly braces. {a: 5 } should be {a: 5}
     "max-len": [2, 120, {"ignoreComments": true, "ignoreUrls": true, "ignorePattern": "^import"}], // max length of a line should not exceed 120 chars excepts for comments, urls and import statements.
     "camelcase": 2, // naming should be in camelCase. No snake_case
-
-    "react/jsx-indent": [2, 2], // indent is 2 spaces in jsx elements
-
-    // 1 - warnings: These should be converted to errors in near future
-
-    // 0 - ignore these
-    "no-console": 0, // production code should not have console cmds
-
-    "react/prop-types": 0 // React properties should be validated 
+    "no-console": 0
  }
 }
