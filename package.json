@@ -12,17 +12,27 @@
   },
   "watch": {
     "eslint": {
-      "patterns": ["src/*"],
+      "patterns": [
+        "src/*"
+      ],
       "extensions": "js",
-      "ignore": ["src/universal/dist/bundle.js"]
+      "ignore": [
+        "src/universal/dist/bundle.js"
+      ]
     },
     "browserify": {
-      "patterns": ["src/universal/*"],
+      "patterns": [
+        "src/universal/*"
+      ],
       "extensions": "js",
-      "ignore": ["src/universal/dist/bundle.js"]
+      "ignore": [
+        "src/universal/dist/bundle.js"
+      ]
     },
     "css": {
-      "patterns": ["src/css/*"],
+      "patterns": [
+        "src/css/*"
+      ],
       "extensions": "scss"
     }
   },
@@ -44,7 +54,7 @@
     "uglify-js": "^2.7.4"
   },
   "dependencies": {
-    "oat": "^1.0.3",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "oat": "^1.0.4"
   }
 }
