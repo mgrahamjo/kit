@@ -15,7 +15,7 @@ Scaffolds a universal single page app using [Oat](https://github.com/mgrahamjo/o
 ## Install
 
 ```
-git clone https://github.com/mgrahamjo/kit && ./kit/bin/setup.mac.sh
+git clone https://github.com/mgrahamjo/kit && ./kit/bin/setup.sh
 ```
 
 ## Develop
@@ -25,4 +25,6 @@ git clone https://github.com/mgrahamjo/kit && ./kit/bin/setup.mac.sh
 npm run watch
 # Start server:
 node .
+# Build for production:
+npm run build
 ```

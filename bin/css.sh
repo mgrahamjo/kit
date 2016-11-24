@@ -1,4 +1,6 @@
-source ./bin/util
+#!/bin/bash
+
+source ./bin/util.sh
 
 ### lint ###
 stylelint src/css/**/*.scss || exit 0

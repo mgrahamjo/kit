@@ -4,10 +4,10 @@
   "description": "Universal JS app scaffolding",
   "main": "src/index.js",
   "scripts": {
-    "build": "./bin/build",
-    "eslint": "./bin/eslint",
-    "browserify": "./bin/browserify",
-    "css": "./bin/css",
+    "build": "./bin/build.sh",
+    "eslint": "./bin/eslint.sh",
+    "browserify": "./bin/browserify.sh",
+    "css": "./bin/css.sh",
     "watch": "npm-watch"
   },
   "watch": {

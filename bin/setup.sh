@@ -1,18 +1,8 @@
 #!/bin/bash
 
-source ./bin/util
+source ./bin/util.sh
 
 cd_to_root
-
-missing() {
-  if command -v $1 >/dev/null 2>&1; then
-    print_blue "$1 is already installed"
-    return 1
-  else
-    print_blue "installing $1..."
-    return 0
-  fi
-}
 
 if missing brew; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
