@@ -59,7 +59,6 @@
     "no-self-compare": 2, //disallow comparisons where both sides are exactly the same
     "no-sequences": 2, // disallow comma operators
     "no-throw-literal": 2, // disallow throwing literals as exceptions
-    "no-use-before-define": 2, // cant use a var before it is defined (aka disallow hoisting)
     "no-with": 2, // disallow with statements
     "radix": 2, // enforce the consistent use of the radix argument when using parseInt()
     "vars-on-top": 2, // require var declarations be placed at the top of their containing scope

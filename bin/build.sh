@@ -8,11 +8,11 @@ source ./bin/util.sh
 ./bin/eslint.sh
 
 ### transpile ###
-browserify src/universal/app.js -o src/universal/dist/bundle.js --transform [ babelify --presets [ es2015 ] ] || exit 0
+browserify src/app.js -o dist/bundle.js --transform [ babelify --presets [ es2015 ] ] || exit 0
 success browserify
 
 ### minify ###
-uglifyjs src/universal/dist/bundle.js --compress --mangle --output src/universal/dist/bundle.js || exit 0
+uglifyjs dist/bundle.js --compress --mangle --output dist/bundle.js || exit 0
 success uglify
 
 ############# CSS #############
@@ -20,5 +20,5 @@ success uglify
 ./bin/css.sh
 
 ### minify ###
-cleancss -o src/universal/dist/main.css src/universal/dist/main.css || exit 0
+cleancss -o dist/main.css dist/main.css || exit 0
 success clean-css
