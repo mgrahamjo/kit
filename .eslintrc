@@ -7,9 +7,7 @@
   },
 
   "globals": {
-    "Map": true,
-    "XMLHTTPRequest": true,
-    "Promise": true
+    "Modernizr": true
   },
 
   "parser": "babel-eslint",
@@ -31,7 +29,7 @@
     "space-unary-ops": 2, // e.g. typeof 5.  rather than typeof5
     "keyword-spacing": 2,  // there should be a space after & before keywords.  e.g. no return5; should be return 5;
     "comma-spacing": 2, // space after a comma
-    "indent": [2, 2], // indent is 2 spaces (softtab)
+    "indent": [2, 4], // indent is 2 spaces (softtab)
     "no-unused-expressions": 2, // no unused expressions.  aka one that is evaluated to a value but never used;
     "semi": 2, // every statement should end with ;
     "comma-dangle": 2, // No dangling comma at the end of last element in arrays or objects
@@ -50,7 +48,7 @@
     "no-loop-func": 2, // disallow function declarations and expressions inside loop statements
     "no-multi-str": 2, // don't allow multiple spaces where no needed like var a  = b;
     "no-new": 2, // no new operators outside of assignments or comparisons
-    "no-new-func": 2, // disallow new operators with the Function object
+    "no-new-func": 0, // disallow new operators with the Function object
     "no-new-wrappers": 2, // disallow new operators with the String, Number, and Boolean objects
     "no-octal-escape": 2, // disallow octal escape sequences in string literals
     "no-proto": 2, // disallow the use of the __proto__ property
@@ -60,7 +58,7 @@
     "no-sequences": 2, // disallow comma operators
     "no-throw-literal": 2, // disallow throwing literals as exceptions
     "no-with": 2, // disallow with statements
-    "radix": 2, // enforce the consistent use of the radix argument when using parseInt()
+    "radix": 0, // enforce the consistent use of the radix argument when using parseInt()
     "vars-on-top": 2, // require var declarations be placed at the top of their containing scope
     "wrap-iife": 2, // require parentheses around immediate function invocations
     "yoda": 2, // don't allow comparisons like 5 === count. Use count === 5 instead.
@@ -79,8 +77,9 @@
     "prefer-arrow-callback": 2, // Suggest using arrow functions as callbacks
     "prefer-const": 2, // Suggest using const for variables which are declared using let but never reassigned
     "object-curly-spacing": 2, // don't allow extra spaces in object curly braces. {a: 5 } should be {a: 5}
-    "max-len": [2, 120, {"ignoreComments": true, "ignoreUrls": true, "ignorePattern": "^import"}], // max length of a line should not exceed 120 chars excepts for comments, urls and import statements.
+    "max-len": [0, 120, {"ignoreComments": true, "ignoreUrls": true, "ignorePattern": "^import"}], // max length of a line should not exceed 120 chars excepts for comments, urls and import statements.
     "camelcase": 2, // naming should be in camelCase. No snake_case
-    "no-console": 0
+    "no-console": 0,
+    "no-case-declarations": 0
  }
 }

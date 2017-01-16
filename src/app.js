@@ -1,5 +1,13 @@
-import u from './util/u';
-import greeting from './components/greeting';
-import button from './components/button';
+import greeting from 'components/greeting';
+import api from 'util/api';
+import url from 'util/url';
 
-u('.app').innerHtml(greeting() + button('click me'));
+function app(params) {
+
+    greeting(params);
+
+}
+
+api.getUsers().then(users => console.log(users));
+
+url.setApp(app);

@@ -1,11 +1,42 @@
 #!/bin/bash
 
+FAILED=()
+
 print_blue() {
-  printf "\033[0;36m$1\033[0m\r\n"
+  printf "\e[36m$1\e[0m\n"
+}
+
+print_red() {
+  printf "\e[31m$1\e[0m\n"
+}
+
+print_green() {
+  printf "\e[32m$1\e[0m\n"
+}
+
+attempt() {
+  printf "$1... "
+  STEP="$1"
 }
 
 success() {
-  print_blue "✓ $1 succeeded"
+  print_blue "✓ $STEP"
+}
+
+fail() {
+  print_red "✖ $STEP failed.\n"
+  FAILED+=("$STEP")
+}
+
+check_status() {
+  if [ ${#FAILED[@]} -eq 0 ]; then
+      print_blue "✓ Build succeeded"
+      return 0
+  else
+      print_red "✖ Build failed:"
+      print_red "  > ${FAILED[@]}"
+      return 1
+  fi
 }
 
 cd_to_root() {

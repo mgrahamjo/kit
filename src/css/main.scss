@@ -1,4 +1,21 @@
-$dark:   #323941;
-$white:  #FAFCFF;
+/* imports */
+@import './imports/variables';
+@import './imports/fonts';
+@import './imports/global';
+/* components */
+@import '../components/button/button';
+@import '../components/greeting/greeting';
 
-@import './components/app';
+.clear::after {
+    content:"";
+    display:table;
+    clear:both;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}

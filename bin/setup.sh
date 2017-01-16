@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./bin/util.sh
+. ./bin/util.sh
 
 cd_to_root
 
@@ -18,10 +18,6 @@ fi
 
 if missing yarn; then
   brew install yarn
-fi
-
-if missing sass; then
-  gem install sass
 fi
 
 yarn

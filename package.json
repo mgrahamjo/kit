@@ -2,34 +2,17 @@
   "name": "kit",
   "version": "1.0.0",
   "description": "Scaffolding for a single page ES6 app",
-  "main": "src/app.js",
+  "main": "dist/index.html",
   "scripts": {
     "build": "./bin/build.sh",
-    "eslint": "./bin/eslint.sh",
-    "browserify": "./bin/browserify.sh",
-    "css": "./bin/css.sh",
-    "watch": "npm-watch"
+    "scss": "./bin/css/stylelint.sh; ./bin/css/sass.sh; ./bin/css/autoprefix.sh",
+    "js": "./bin/js/browserify.sh",
+    "watch": "./bin/ws/prepare.sh; ./bin/html/constants.sh; node bin/ws/watch.js"
   },
-  "watch": {
-    "eslint": {
-      "patterns": [
-        "src/*"
-      ],
-      "extensions": "js"
-    },
-    "browserify": {
-      "patterns": [
-        "src/*"
-      ],
-      "extensions": "js"
-    },
-    "css": {
-      "patterns": [
-        "src/css/*"
-      ],
-      "extensions": "scss"
-    }
-  },
+  "browserslist": [
+    "last 2 version",
+    "ie 9"
+  ],
   "repository": "https://github.com/mgrahamjo/kit",
   "author": "Mike Johnson",
   "license": "MIT",
@@ -38,14 +21,21 @@
     "babel-eslint": "^7.1.1",
     "babel-preset-es2015": "^6.18.0",
     "babelify": "^7.3.0",
-    "browserify": "^13.1.1",
     "clean-css": "^3.4.21",
     "eslint": "^3.10.2",
-    "npm-watch": "^0.1.6",
+    "hash-filename": "^1.0.4",
+    "html-minifier": "^3.2.3",
+    "map-replace": "^1.0.2",
+    "node-sass": "^3.13.0",
+    "persistify": "^1.1.1",
     "postcss-cli": "^2.6.0",
     "stylelint": "^7.6.0",
     "stylelint-config-standard": "^15.0.0",
     "uglify-js": "^2.7.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "classlist-polyfill": "^1.0.3",
+    "treaty": "^0.0.3",
+    "uav": "https://github.com/mike-unearth/uav"
+  }
 }

@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    color: white;
+    font-family: 'museo sans';
+    font-size: 9pt;
+    background-color: $black;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: $blue;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color $transition;
+
+    &:hover {
+        color: lighten($blue, 10%);
+    }
+}

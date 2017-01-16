@@ -1,24 +1,55 @@
 #!/bin/bash
 
-source ./bin/util.sh
+. ./bin/util.sh
+
+### Prepare workspace ###
+./bin/ws/prepare.sh
 
 ########## JavaScript ##########
 
 ### lint ###
-./bin/eslint.sh
+attempt eslint
+./bin/js/eslint.sh && success || fail
 
 ### transpile ###
-browserify src/app.js -o dist/bundle.js --transform [ babelify --presets [ es2015 ] ] || exit 0
-success browserify
+attempt browserify
+./bin/js/browserify.prod.sh && success || fail
 
 ### minify ###
-uglifyjs dist/bundle.js --compress --mangle --output dist/bundle.js || exit 0
-success uglify
+attempt uglifyjs
+uglifyjs dist/bundle.js --compress --mangle --output dist/bundle.js && success || fail
 
 ############# CSS #############
 
-./bin/css.sh
+### lint ###
+attempt stylelint
+./bin/css/stylelint.sh && success || fail
+
+### compile ###
+attempt sass
+./bin/css/sass.sh && success || fail
+
+### autoprefix ###
+attempt autoprefix
+./bin/css/autoprefix.sh && success || fail
 
 ### minify ###
-cleancss -o dist/main.css dist/main.css || exit 0
-success clean-css
+attempt cleancss
+cleancss -o dist/main.css dist/main.css && success || fail
+
+############# HTML #############
+
+### Insert constants ##
+attempt constants
+./bin/html/constants.sh && success || fail
+
+### Minify HTML ###
+attempt html-minifier
+./bin/html/minify.sh && success || fail
+
+### Hash filenames ###
+attempt hash-filename
+./bin/html/hash-filename.sh && success || fail
+
+### Clean up temp files ###
+rm dist/bundle.js dist/main.css
