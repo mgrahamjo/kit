@@ -9,29 +9,21 @@
 
 ### lint ###
 attempt eslint
-./bin/js/eslint.sh && success || fail
+eslint "src/**/*.js" && success || fail
 
 ### transpile ###
-attempt browserify
-./bin/js/browserify.prod.sh && success || fail
-
-### minify ###
-attempt uglifyjs
-uglifyjs dist/bundle.js --compress --mangle --output dist/bundle.js && success || fail
+attempt webpack
+webpack --config webpack.prod.js && success || fail
 
 ############# CSS #############
 
-### lint ###
-attempt stylelint
-./bin/css/stylelint.sh && success || fail
-
 ### compile ###
 attempt sass
-./bin/css/sass.sh && success || fail
+node-sass src/css/main.scss dist/main.css --quiet && success || fail
 
 ### autoprefix ###
 attempt autoprefix
-./bin/css/autoprefix.sh && success || fail
+postcss --use autoprefixer dist/main.css --replace && success || fail
 
 ### minify ###
 attempt cleancss

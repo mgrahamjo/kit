@@ -1,8 +1,8 @@
 #!/bin/bash
 
-rm -rf dist
+rm -rf dist/*
 
-mkdir dist
+mkdir dist >/dev/null 2>&1
 
 cp -rf src/images dist/images
 
