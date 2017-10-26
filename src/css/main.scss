@@ -2,14 +2,16 @@
 @import './imports/variables';
 @import './imports/fonts';
 @import './imports/global';
+
 /* components */
-@import '../components/button/button';
-@import '../components/greeting/greeting';
+@import '../components/user-table/user-table';
+@import '../components/user-profile/user-profile';
+@import '../components/message/message';
 
 .clear::after {
-    content:"";
-    display:table;
-    clear:both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .left {

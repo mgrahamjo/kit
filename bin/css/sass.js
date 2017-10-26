@@ -19,6 +19,16 @@ fs.watch('src', {
 
         });
 
+        spawn('stylelint', ['src/' + file], {
+            stdio: 'inherit'
+        }).on('close', code => {
+
+            if (code === 1) {
+                console.error('✖ "stylelint" failed.');
+            }
+
+        });
+
     }
 
 });

@@ -11,9 +11,17 @@
 attempt eslint
 eslint "src/**/*.js" && success || fail
 
+### test ###
+attempt karma
+npm run test -- --single-run --browsers=ChromeHeadless && success || fail
+
 ### transpile ###
 attempt webpack
 webpack --config webpack.prod.js && success || fail
+
+### Collapse whitespace ###
+attempt whitespace
+tr -s " " < dist/bundle.js > dist/tmp && mv dist/tmp dist/bundle.js && success || fail
 
 ############# CSS #############
 
@@ -31,9 +39,8 @@ cleancss -o dist/main.css dist/main.css && success || fail
 
 ############# HTML #############
 
-### Insert constants ##
-attempt constants
-./bin/html/constants.sh && success || fail
+### Copy HTML ###
+cp src/index.html dist/index.html
 
 ### Minify HTML ###
 attempt html-minifier
@@ -43,5 +50,16 @@ attempt html-minifier
 attempt hash-filename
 ./bin/html/hash-filename.sh && success || fail
 
+### Insert constants ###
+attempt constants
+./bin/html/constants.sh "index" && success || fail
+
 ### Clean up temp files ###
 rm dist/bundle.js dist/main.css
+
+### check status ###
+if check_status; then
+
+    print_green "✓ Done!"
+
+fi

@@ -1,14 +1,14 @@
 const config = require('./webpack.dev.js');
 const webpack = require('webpack');
 
-delete config.devtool;
-
 config.plugins = [
     new webpack.optimize.UglifyJsPlugin({
         minimize: true,
-        compress: true,
+        compress: {
+            warnings: false
+        },
         mangle: true,
-        sourceMap: false,
+        sourceMap: true,
         output: {
             comments: false
         }

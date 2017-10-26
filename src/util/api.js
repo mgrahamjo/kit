@@ -1,14 +1,11 @@
 import ajax from 'util/ajax';
 import constants from 'util/constants';
+import message from 'components/message';
 
-const api = {
+export default {
 
-    getUsers() {
-        
-        return ajax(`${constants.apiURL}/users`);
-
-    }
+    get: path => 
+        ajax.get(`${constants.apiURL}/${path}`)
+            .catch(err => message.error(err))
 
 };
-
-export default api;

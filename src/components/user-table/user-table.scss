@@ -1,0 +1,16 @@
+.user-table {
+    border-collapse: collapse;
+
+    td {
+        padding: 5px;
+    }
+
+    tbody tr {
+        cursor: pointer;
+        transition: background-color $transition;
+
+        &:hover {
+            background-color: #eaf4f7;
+        }
+    }
+}

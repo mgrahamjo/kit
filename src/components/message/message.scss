@@ -1,0 +1,48 @@
+.message {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    top: -64px;
+    font-weight: 300;
+    font-size: 10pt;
+    z-index: 1;
+    text-align: center;
+    transition: all $transition;
+    padding: 25px 0;
+    height: 64px;
+    color: white;
+
+    &.visible {
+        top: 0;
+    }
+
+    &.warning {
+        background-color: $yellow;
+        color: $brown;
+    }
+
+    &.error {
+        background-color: $red;
+    }
+
+    &.success {
+        background-color: $green;
+    }
+
+    .close {
+        padding: 15px 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 24pt;
+        font-style: normal;
+        font-weight: bold;
+        font-family: monospace;
+        height: 64px;
+        box-sizing: border-box;
+        display: block;
+        cursor: pointer;
+    }
+
+}

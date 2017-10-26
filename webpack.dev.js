@@ -7,21 +7,22 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        loaders: [{
+        rules: [{
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015']
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['es2015']
+                }
             }
         }]
     },
     resolve: {
-        root: [
-            path.resolve('./external'),
-            path.resolve('./src')
+        modules: [
+            path.resolve('src'),
+            path.resolve('node_modules')
         ]
     },
-    devtool: 'source-map',
-    noParse: /node_modules\/leaflet/
+    devtool: 'source-map'
 };

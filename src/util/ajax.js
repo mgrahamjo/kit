@@ -1,12 +1,10 @@
-import treaty from 'treaty';
+function ajax(method) {
 
-function ajax(url, options = {}) {
-
-    return treaty((resolve, reject) => {
+    return url => new Promise((resolve, reject) => {
 
         const xhr = new XMLHttpRequest();
 
-        xhr.open(options.method || 'GET', url);
+        xhr.open(method, url);
 
         xhr.onload = () => {
 
@@ -28,8 +26,7 @@ function ajax(url, options = {}) {
 
             } else {
 
-                console.error(`${xhr.status}: ${xhr.statusText}`);
-                reject(`${xhr.status}: ${xhr.statusText}`);
+                reject(xhr.statusText);
 
             }
 
@@ -40,5 +37,11 @@ function ajax(url, options = {}) {
     });
 
 }
+
+ajax.get = ajax('GET');
+ajax.put = ajax('PUT');
+ajax.post = ajax('POST');
+ajax.patch = ajax('PATCH');
+ajax.delete = ajax('DELETE');
 
 export default ajax;

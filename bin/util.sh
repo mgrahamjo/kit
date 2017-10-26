@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 FAILED=()
 
@@ -33,6 +33,7 @@ check_status() {
       print_blue "✓ Build succeeded"
       return 0
   else
+      rm command/build/last_built
       print_red "✖ Build failed:"
       print_red "  > ${FAILED[@]}"
       return 1
