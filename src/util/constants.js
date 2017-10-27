@@ -1,3 +1,5 @@
-const constants = JSON.parse(document.getElementById('constants').innerHTML);
+import uav from 'uav';
+
+const constants = JSON.parse(uav('#constants').innerHTML);
 
 export default constants;

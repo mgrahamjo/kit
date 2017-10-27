@@ -1,11 +1,11 @@
 body {
     margin: 0;
-    padding: 5%;
     box-sizing: content-box;
     color: $black;
     font-family: 'museo sans';
     font-size: 9pt;
     -webkit-tap-highlight-color: transparent;
+    background: #fbfbfb;
 }
 
 a {
@@ -17,4 +17,18 @@ a {
     &:hover {
         color: lighten($blue, 10%);
     }
+}
+
+header {
+    padding: 20px 40px;
+    background-color: #f1f1f1;
+
+    a {
+        font-weight: bold;
+        font-size: 14pt;
+    }
+}
+
+footer {
+    padding: 20px 40px;
 }

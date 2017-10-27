@@ -19,8 +19,7 @@ module.exports = function(config) {
         files: [
             {pattern: 'dist/images/*.png', watched: false, included: false, served: true},
             'test/setup.js',
-            'test/**/*.js',
-            'src/**/*.js'
+            'test/**/*.js'
         ],
 
 

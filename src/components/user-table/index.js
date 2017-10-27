@@ -1,12 +1,13 @@
 import uav from 'uav';
+import router from 'uav-router';
 import api from 'util/api';
 import state from 'util/state';
-import router from 'util/router';
+import message from 'components/message';
 
 function userTable() {
 
-    uav.component(`
-    <div>
+    const component = uav.component(`
+    <div u-class="view {state.users.length ? '' : 'hidden'}">
         <h1>Users</h1>
         <table class="user-table">
             <thead>
@@ -36,19 +37,27 @@ function userTable() {
         state,
         select: user => () => {
 
-            router.set({user: user.id})();
+            // Navigate to the user profile
+            router.set({user: user.id});
 
         },
         remove: index => e => {
 
             e.stopPropagation();
 
+            message.warning(`Deleted ${state.users[index].name}.`);
+
+            // Remove the user from the list
             state.users.splice(index, 1);
 
         }
-    }, '#app');
+    });
 
-    if (!state.users) {
+    // If we reached this view from elsewhere in the app, 
+    // state.users will already be defined. If however we
+    // arrived directly on this component, we need to fetch
+    // the user list.
+    if (!state.users.length) {
 
         api.get('users').then(users => {
 
@@ -57,6 +66,8 @@ function userTable() {
         });
 
     }
+
+    return component;
 
 }
 

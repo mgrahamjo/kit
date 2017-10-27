@@ -11,6 +11,11 @@
 
         &:hover {
             background-color: #eaf4f7;
+
+            td:last-child {
+                background-color: #ff6868;
+                color: white;
+            }
         }
     }
 }

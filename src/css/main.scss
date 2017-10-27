@@ -21,3 +21,13 @@
 .right {
     float: right;
 }
+
+.view {
+    opacity: 1;
+    padding: 20px 40px;
+    transition: opacity $transition;
+
+    &.hidden {
+        opacity: 0;
+    }
+}
