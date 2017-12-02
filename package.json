@@ -43,6 +43,6 @@
     "classlist-polyfill": "^1.0.3",
     "promise-polyfill": "^6.0.2",
     "uav": "^2.0.1",
-    "uav-router": "0.0.2"
+    "uav-router": "0.0.3"
   }
 }
